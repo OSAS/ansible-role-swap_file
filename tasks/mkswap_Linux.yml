@@ -1,0 +1,12 @@
+- name: "Run mkswap for {{ path }}"
+  command: "mkswap {{ path }}"
+
+- name: "Run swapon for {{ path }}"
+  command: "swapon {{ path }}"
+
+- name: "Add {{ path }} to fstab"
+  mount:
+    name: none
+    src: "{{ path }}"
+    fstype: swap
+    state: present

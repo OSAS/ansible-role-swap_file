@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Michael Scherer
+  description: Ansible role to create swap file
+  company: Red Hat
+  license: MIT
+  # needed for human_to_bytes
+  min_ansible_version: 2.2
+  platforms:
+  - name: EL
+    versions:
+    - 7
+  categories:
+  - system
+dependencies: []

@@ -1,0 +1,19 @@
+- name: Verify that the file do not exist already
+  stat:
+    path: "{{ path }}" 
+  register: _file
+  changed_when: False
+
+- name: "Create the file {{ path }}"
+  command: dd if=/dev/zero of={{ path }} bs={{ block_size }} count={{ ((size|human_to_bytes)/block_size)|int }}
+  when: _file.stat.exists == False
+
+- name: "Ensure permission are correct on {{ path }}"
+  file:
+    path: "{{ path }}"
+    owner: root
+    group: root
+    mode: "go-rwx,u+rw"
+
+- include: "mkswap_{{ ansible_system }}.yml"
+  when: _file.stat.exists == False
