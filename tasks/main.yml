@@ -1,6 +1,6 @@
 - name: Verify that the file do not exist already
   stat:
-    path: "{{ path }}" 
+    path: "{{ path }}"
   register: _file
   changed_when: False
 
