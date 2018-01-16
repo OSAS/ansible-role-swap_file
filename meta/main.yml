@@ -4,8 +4,7 @@ galaxy_info:
   description: Ansible role to create swap file
   company: Red Hat
   license: MIT
-  # needed for human_to_bytes
-  min_ansible_version: 2.2
+  min_ansible_version: 2.4
   platforms:
   - name: EL
     versions:
