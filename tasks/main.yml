@@ -6,7 +6,7 @@
 
 - name: "Create the file {{ path }}"
   command: dd if=/dev/zero of={{ path }} bs={{ block_size }} count={{ ((size|human_to_bytes)/block_size)|int }}
-  when: _file.stat.exists == False
+  when: not _file.stat.exists
 
 - name: "Ensure permission are correct on {{ path }}"
   file:
@@ -16,4 +16,4 @@
     mode: "go-rwx,u+rw"
 
 - include_tasks: "mkswap_{{ ansible_system }}.yml"
-  when: _file.stat.exists == False
+  when: not _file.stat.exists
