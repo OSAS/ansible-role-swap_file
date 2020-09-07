@@ -1,3 +1,5 @@
+---
+
 - name: "Run mkswap for {{ path }}"
   command: "mkswap {{ path }}"
   changed_when: True

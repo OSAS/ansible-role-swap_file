@@ -1,3 +1,5 @@
+---
+
 - name: Verify that the file do not exist already
   stat:
     path: "{{ path }}"
